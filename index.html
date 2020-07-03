@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<title>Loading</title>
+
+	<style>
+		.loading {
+			position : relative;
+			background: url("1.png") top left no-repeat;
+			transform: inherit;
+			width: 30px;
+			height: 47px;
+		}
+
+		.loading::before {
+			border: none !important;
+			content: "";
+			width: 30px;
+			height: 47px;
+			position : absolute;
+			z-index : -1;
+			background: url("2.png") center/cover no-repeat;
+			top: 0;
+			left: 0;
+			transform: rotate(12deg);
+			transform-origin: bottom left;
+			transition: ease-out;
+			animation: first-card 2s infinite;
+		}
+
+		.loading::after {
+			border: none !important;
+			content: "";
+			width: 30px;
+			height: 47px;
+			position : absolute;
+			z-index: -2;
+			background: url("3.png") center/cover no-repeat;
+			top: 0;
+			left: 0;
+			transform-origin: bottom left;
+			transition: ease all 1s;
+			animation: second-card 2s infinite;
+			animation-delay: .3s;
+		}
+
+		@keyframes first-card {
+			0%   { transform: rotate(0deg); }
+			50%  { transform: rotate(16deg); }
+			100% { transform: rotate(0deg); }
+		}
+
+		@keyframes second-card {
+			0%   { transform: rotate(0deg); }
+			50%  { transform: rotate(32deg); }
+			100% { transform: rotate(0deg); }
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="loading"></div>
+
+</body>
+</html>
